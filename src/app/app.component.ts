@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
-import { Product } from './model/Product.model';
-import { ProductRepositoryService } from './service/product-repository.service';
+import { Message } from './model/Message.model';
+import { MessageRepositoryService } from './service/message-repository.service';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +11,10 @@ import { ProductRepositoryService } from './service/product-repository.service';
 })
 export class AppComponent {
   title = 'app';
-
   productList: Observable<any[]>;
 
-  constructor(private productRepo: ProductRepositoryService){
-    this.productList = this.productRepo.getProductList();
-    console.log(this.productList);
+  constructor(private messageRepo: MessageRepositoryService){
+    this.productList = this.messageRepo.getProductList();
+
   }
 }
